@@ -1,0 +1,29 @@
+
+.tbl {	/* 表格样式*/
+    border: 1px solid #0058a3;	/* 表格边框 */
+    font-family: Arial;
+    border-collapse: collapse;	/* 边框重叠 */
+    background-color: #eaf5ff;	/* 表格背景色 */
+    font-size: 14px;
+}
+
+.tbl th {						/* 行名称样式 */
+    border: 1px solid #0058a3;		/* 行名称边框 */
+    background-color: #4bacff;		/* 行名称背景色 */
+    color: #FFFFFF;				/* 行名称颜色 */
+    
+    padding: 4px  12px;
+    			/* 水平对齐 */
+}
+
+.tbl td {
+	line-height:22px;
+}
+
+.tbl tr:hover { 
+//	background-color: #CC9999;	/* 动态变色 */ 
+}
+
+.Mouse{
+	cursor:pointer;
+}
