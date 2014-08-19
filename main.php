@@ -18,7 +18,7 @@ include 'conn.php';
 <title>我的网址</title>
 </head>
 <body>
-<table class="tbl"  width="500" border="0">
+<table class="tbl"  width="600" border="0">
   <tr>
     <th colspan="2">用户信息</th>
   </tr>
@@ -32,7 +32,7 @@ include 'conn.php';
 
 <br />
 
-<table class="tbl" width="500" border="0">
+<table class="tbl" width="600" border="0">
   <tr>
     <th>网址分享</th>
   </tr>
@@ -74,7 +74,7 @@ include 'conn.php';
 
 <br />
 
-<table class="tbl" width="500" border="0">
+<table class="tbl" width="600" border="0">
   <tr>
     <th>我的网址</th>
   </tr>
@@ -87,12 +87,13 @@ include 'conn.php';
 		
 		print('<table width="100%" border="1">');
 		print('<tr bgcolor="#cccccc">');
-		print('<td width="25%" align="center">名称</td>');
-		print('<td width="15%" align="center">地址1</td>');
-		print('<td width="15%" align="center">地址2</td>');
-		print('<td width="15%" align="center">地址3</td>');
-		print('<td width="15%" align="center">地址4</td>');
-		print('<td width="15%" align="center">地址5</td>');
+		print('<td width="20%" align="center">名称</td>');
+		print('<td width="14%" align="center">地址1</td>');
+		print('<td width="14%" align="center">地址2</td>');
+		print('<td width="14%" align="center">地址3</td>');
+		print('<td width="14%" align="center">地址4</td>');
+		print('<td width="14%" align="center">地址5</td>');
+		print('<td width="7%"  align="center">操作</td>');
 		print('</tr>');
 		print('</table>');
 		
@@ -100,16 +101,63 @@ include 'conn.php';
 		{
 			print('<table width="100%" border="1">');
 			print('<tr>');
-			print('<td width="25%" align="center"><a href="http://'.$row->fav_desc_url.'" title="'.$row->fav_desc.'" target="_blank">'.$row->fav_name.'</a></td>');
-			print('<td width="15%" align="center"><a href="http://'.$row->fav_url1.'" title="'.$row->fav_url1_tip.'" target="_blank">'.$row->fav_url1_name.'</a></td>');
-			print('<td width="15%" align="center"><a href="http://'.$row->fav_url2.'" title="'.$row->fav_url2_tip.'" target="_blank">'.$row->fav_url2_name.'</a></td>');
-			print('<td width="15%" align="center"><a href="http://'.$row->fav_url3.'" title="'.$row->fav_url3_tip.'" target="_blank">'.$row->fav_url3_name.'</a></td>');
-			print('<td width="15%" align="center"><a href="http://'.$row->fav_url4.'" title="'.$row->fav_url4_tip.'" target="_blank">'.$row->fav_url4_name.'</a></td>');
-			print('<td width="15%" align="center"><a href="http://'.$row->fav_url5.'" title="'.$row->fav_url5_tip.'" target="_blank">'.$row->fav_url5_name.'</a></td>');
+			print('<td width="20%" align="center"><a href="http://'.$row->fav_desc_url.'" title="'.$row->fav_desc.'" target="_blank">'.$row->fav_name.'</a></td>');
+			print('<td width="14%" align="center"><a href="http://'.$row->fav_url1.'" title="'.$row->fav_url1_tip.'" target="_blank">'.$row->fav_url1_name.'</a></td>');
+			print('<td width="14%" align="center"><a href="http://'.$row->fav_url2.'" title="'.$row->fav_url2_tip.'" target="_blank">'.$row->fav_url2_name.'</a></td>');
+			print('<td width="14%" align="center"><a href="http://'.$row->fav_url3.'" title="'.$row->fav_url3_tip.'" target="_blank">'.$row->fav_url3_name.'</a></td>');
+			print('<td width="14%" align="center"><a href="http://'.$row->fav_url4.'" title="'.$row->fav_url4_tip.'" target="_blank">'.$row->fav_url4_name.'</a></td>');
+			print('<td width="14%" align="center"><a href="http://'.$row->fav_url5.'" title="'.$row->fav_url5_tip.'" target="_blank">'.$row->fav_url5_name.'</a></td>');
+			print('<td width="7%"  align="center"><a href="fav.php?action=del&id='.$row->fav_id.'">删</a> <a href="fav.php?action=edit&id='.$row->fav_id.'">编</a></td>');
 			print('</tr>');
 			print('</table>');
 		}
+		print('<table width="100%" border="1">');
+		print('<tr>');
+		print('<td colspan="7" align="right"><a href="fav.php?action=add">添加</a>&nbsp;</td>');
+		print('</tr>');
+		print('</table>');
 	?>
+    </td>
+  </tr>
+</table>
+<br />
+
+<table class="tbl" width="600" border="1">
+  <tr>
+    <th>站内留言</th>
+  </tr>
+  <tr>
+  	<td>
+    <table width="100%" border="1">
+    	<tr bgcolor="#cccccc">
+    		<td width="70%" align="center">列表</td>
+    		<td width="30%" align="center">留言</td>
+    	</tr>
+    	<tr>
+    		<td><div id="msg_list"></div></td>
+    		<td>
+    			<form action="" method="post">
+    			<table width="100%" border="1">
+    				<tr>
+    					<td colspan="2"><textarea rows="5" cols="30" name="text"></textarea></td>
+    				</tr>
+    				<tr>
+    					<td align="center">类型：<select name="type">
+    						<option value="0">普通</option>
+    						<option value="1">加密</option>
+    					</select></td>
+    					<td align="center">
+    						密码：<input type="text" size="10" />
+    					</td>
+    				</tr>
+    				<tr>
+    					<td colspan="2" align="center"><input type="submit" value="提交" /></td>
+    				</tr>
+    			</table>
+    			</form>
+    		</td>
+    	</tr>
+    </table>
     </td>
   </tr>
 </table>

@@ -174,8 +174,7 @@
 		$result = $mysqli->query($sql);
 		if($result)
 		{
-			echo('操作成功！<br />');
-			echo('<a href="/main.php">返回</a>');
+			header('Location: /main.php');
 		}
 	}
 	
@@ -255,8 +254,7 @@
 		$result = $mysqli->query($sql);
 		if($result)
 		{
-			echo('操作成功！<br />');
-			echo('<a href="/main.php">返回</a>');
+			header('Location: /main.php');
 		}
 	}
 	

@@ -9,11 +9,6 @@
 	include 'session.php';
 	include 'conn.php';
 
-//	$User = $_POST['User'];
-//	$Pwd  = $_POST['Pwd'];
-//	printf("%s - %s",$User,$Pwd);
-//	check_auth($User,$Pwd,$mysqli);
-
 	// 注销session
 	if($_GET['logout'] == 'yes')
 	{
