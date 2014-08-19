@@ -8,12 +8,12 @@
 
 	include 'session.php';
 	include 'conn.php';
+	include 'netfav.php';
 	
-	$User = $_SESSION['name'];
 	$Old  = $_REQUEST['old'];
 	$Pwd  = $_REQUEST['pwd'];
 	
-	$user_sql = "SELECT user_id, user_pwd FROM user WHERE user_name='".$User."';";
+	$user_sql = "SELECT user_id, user_pwd FROM user WHERE user_name='".$_SESSION['name']."';";
 	$user_result = $mysqli->query($user_sql);
 	$row = $user_result->fetch_object();
 	
@@ -22,16 +22,9 @@
 	
 	if(strcmp($Old,$OldPwd)==0)
 	{
-		$sql  = "UPDATE user SET ";
-		$sql .= "user_pwd='".$Pwd."'";
-		$sql .= " WHERE ";
-		$sql .= "user_id='".$Id."';";
-		
-		$result = $mysqli->query($sql);
-		if($result)
-		{
-			header('Location: /main.php');
-		}
+		$nf = new NetFav();
+		$nf->User_Edit($Id, $_SESSION['name'], $Pwd);
+		header('Location: /main.php');
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

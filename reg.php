@@ -7,6 +7,25 @@
  */
 
 	include 'session.php';
+	include 'netfav.php';
+	
+	$User = $_REQUEST['user'];
+	$Pwd  = $_REQUEST['pwd'];
+	
+	if(strcmp($User,"")!=0 && strcmp($Pwd,"")!=0){
+		$nf = new NetFav();
+		$result = $nf->User_Add($User, $Pwd, 2, 1); // 级别为2，父级为1
+		if(strcmp($result,"Ok")==0){
+			header('Location: /index.php');
+		}else{
+			header("Content-Type: text/html; charset=UTF-8");
+			echo('用户名已存在！<br />');
+			echo('<a href="/reg.php">返回</a>');
+			die();
+		}
+	}
+	
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,7 +63,7 @@
   </tr>
 </table>
 <br />
-<form action="api.php?action=user_add" method="post">
+<form action="reg.php" method="post">
 <table class="tbl" width="350" border="0">
   <tr>
     <th colspan="3">注册用户</th>
@@ -65,9 +84,9 @@
   	<td><div id="Edit3_Tip" align="center" style="color:red"></div></td>
   </tr>
   <tr>
-  	<td><input type="hidden" name="father" value="1" /></td>
+  	<td></td>
   	<td><input type="submit" id="button" value="提交" disabled="disabled" /></td>
-  	<td><input type="hidden" name="level" value="2" /></td>
+  	<td></td>
   </tr>
 </table>
 </form>

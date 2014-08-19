@@ -136,22 +136,13 @@ include 'conn.php';
     	<tr>
     		<td><div id="msg_list"></div></td>
     		<td>
-    			<form action="" method="post">
+    			<form action="msg.php" method="post">
     			<table width="100%" border="1">
     				<tr>
-    					<td colspan="2"><textarea rows="5" cols="30" name="text"></textarea></td>
+    					<td><textarea rows="5" cols="30" name="text"></textarea></td>
     				</tr>
     				<tr>
-    					<td align="center">类型：<select name="type">
-    						<option value="0">普通</option>
-    						<option value="1">加密</option>
-    					</select></td>
-    					<td align="center">
-    						密码：<input type="text" size="10" />
-    					</td>
-    				</tr>
-    				<tr>
-    					<td colspan="2" align="center"><input type="submit" value="提交" /></td>
+    					<td align="center"><input type="submit" value="提交" /></td>
     				</tr>
     			</table>
     			</form>

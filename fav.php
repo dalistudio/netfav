@@ -1,4 +1,10 @@
 <?php
+/**
+ * 版权所有 (c) 2014，保留所有权利。
+ * NetFav 2.0
+ *
+ * 收藏夹操作页面
+ */
 	include 'session.php';
 	include 'conn.php';
 
