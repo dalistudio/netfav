@@ -26,7 +26,7 @@ include 'conn.php';
     <td width="50%" align="left"><div align="center">用户：
       <?=$_SESSION['name']?>
     </div></td>
-    <td width="50%" align="right"><a href="reg.php?Type=chang">修改密码</a> | <a href="login.php?logout=yes">安全退出</a></td>
+    <td width="50%" align="right"><a href="change.php">修改密码</a> | <a href="login.php?logout=yes">安全退出</a></td>
   </tr>
 </table>
 

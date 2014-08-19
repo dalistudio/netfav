@@ -8,12 +8,11 @@
 }
 
 .tbl th {						/* 行名称样式 */
-    border: 1px solid #0058a3;		/* 行名称边框 */
-    background-color: #4bacff;		/* 行名称背景色 */
+    border: 1px solid #0058a3;	/* 行名称边框 */
+    background-color: #4bacff;	/* 行名称背景色 */
     color: #FFFFFF;				/* 行名称颜色 */
     
-    padding: 4px  12px;
-    			/* 水平对齐 */
+    padding: 4px  12px; 		/* 水平对齐 */
 }
 
 .tbl td {
@@ -21,7 +20,7 @@
 }
 
 .tbl tr:hover { 
-//	background-color: #CC9999;	/* 动态变色 */ 
+/*/	background-color: #CC9999;	/* 动态变色 */
 }
 
 .Mouse{

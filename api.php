@@ -57,12 +57,12 @@
 		$sql .= "user_pwd='".$Pwd."',";
 		$sql .= "user_level='".$Level."',";
 		$sql .= "user_father='".$Father."'";
-		
+
 		$result = $mysqli->query($sql);
 		if($result)
 		{
 			echo('恭喜您，注册成功！<br />');
-			echo('<a href="/index.php">返回</a>');
+			echo('<a href="/index.php">请返回登录...</a>');
 		}
 		else
 		{
